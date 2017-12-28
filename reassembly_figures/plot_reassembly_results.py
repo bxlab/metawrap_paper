@@ -33,6 +33,84 @@ plt.style.use('ggplot')
 pos=0
 for data_set in data_sets:
     ####################################################################################################################################
+    ############################################             N50 PLOT                ############################################
+    ####################################################################################################################################
+    pos+=1
+    print "plotting N50"
+    data={}
+    max_x=0
+    max_n50=0
+    # loop over all bin .stats files
+    for file_name in set_list:
+        bin_set=file_name
+        data[bin_set]=[]
+        for line in open(data_set+"/"+file_name+".stats"):
+            # skip header
+            if "complete" in line: continue
+            # skip bins that are too contaminated or very incomplete
+            if float(line.split("\t")[2])>max_contamination: continue
+            if float(line.split("\t")[1])<min_completion: continue
+            
+            # save the completion value of each bin into a list
+            data[bin_set].append(float(line.split("\t")[5]))            
+            if len(data[bin_set])>max_x: max_x=len(data[bin_set])
+            if int(line.split("\t")[5])>max_n50: max_n50=int(line.split("\t")[5])
+            
+    # sort the completion data sets
+    for bin_set in data:
+        data[bin_set].sort(reverse=True)
+        
+    # Remove the plot frame lines. They are unnecessary chartjunk.    
+    ax = plt.subplot(330+pos)
+    ax.spines["top"].set_visible(False)
+    ax.spines["bottom"].set_linewidth(0.5)
+    ax.spines['bottom'].set_color('black')
+    ax.spines["right"].set_visible(False)
+    ax.spines["left"].set_visible(False)
+    ax.set_facecolor('white')
+    ax.set_yscale('log')
+    
+    # Ensure that the axis ticks only show up on the bottom and left of the plot.    
+    ax.get_xaxis().tick_bottom()
+    ax.get_yaxis().tick_left()
+    
+    # Limit the range of the plot to only where the data is.    
+    max_x=0
+    plt.ylim(1000, 2000000)
+    for k in data:
+        if len(data[k])>max_x: max_x=len(data[k])
+        plt.xlim(0, max_x)
+    
+        # Make sure your axis ticks are large enough to be easily read.    
+        plt.yticks([1000,10000,100000,1000000], ["1","10","100","1000"], fontsize=14) 
+        plt.xticks(fontsize=14)    
+        
+        # Provide tick lines across the plot to help your viewers trace along    
+        for y in [1000,10000,100000,1000000]:
+        	plt.plot(range(0, max_x), [y] * len(range(0, max_x)), "--", lw=0.2, color="black", alpha=0.3, dashes=(15, 15))    
+                    
+        # Remove the tick marks; they are unnecessary with the tick lines we just plotted.    
+        plt.tick_params(axis="both", which="both", bottom="off", top="off", labelbottom="on", left="off", right="off", labelleft="on")    
+            
+            
+        # start plotting data
+        for bin_set in data:
+            # chose a color!
+            c=plot_colors[bin_set]
+            
+            # plot the data
+            if bin_set=="MaxBin2" or bin_set=="metaBAT2" or bin_set=="CONCOCT": plt.plot(data[bin_set], lw=3.5, color=c, linestyle='dashed')
+            else: plt.plot(data[bin_set], lw=3.5, color=c)
+        
+        
+    # add plot and axis titles and adjust edges
+    if pos<3: plt.title("Bin N50", fontsize=36) 
+    plt.ylabel("Bin N50 (Kpb)", fontsize=20)
+    if pos>4: plt.xlabel("Bin completion ranking", fontsize=20)
+    plt.text(-0.35*max_x, 50000, data_set, fontsize=36, ha="center", rotation='vertical', verticalalignment='center')
+
+
+    ####################################################################################################################################
     ############################################             COMPLETION PLOT                ############################################
     ####################################################################################################################################
     pos+=1
@@ -59,7 +137,7 @@ for data_set in data_sets:
         data[bin_set].sort(reverse=True)
         
     # Remove the plot frame lines. They are unnecessary chartjunk.    
-    ax = plt.subplot(320+pos)
+    ax = plt.subplot(330+pos)
     ax.spines["top"].set_visible(False)
     ax.spines["bottom"].set_linewidth(0.5)
     ax.spines['bottom'].set_color('black')
@@ -101,10 +179,9 @@ for data_set in data_sets:
         
         
     # add plot and axis titles and adjust edges
-    if pos<3: plt.title("Bin completion", fontsize=36) 
+    if pos<4: plt.title("Bin completion", fontsize=36) 
     plt.ylabel("Bin completion (%)", fontsize=20)
-    if pos>4: plt.xlabel("Bin completion ranking", fontsize=20)
-    plt.text(-0.20*max_x, 75, data_set, fontsize=30, ha="center", rotation='vertical', verticalalignment='center')
+    if pos>6: plt.xlabel("Bin completion ranking", fontsize=20)
 
 
 
@@ -133,7 +210,7 @@ for data_set in data_sets:
         data[bin_set].sort(reverse=False)
         
     # MAKING THE PLOT PRETTY!!!!
-    ax = plt.subplot(320+pos)
+    ax = plt.subplot(330+pos)
     ax.spines["top"].set_visible(False)
     ax.spines["bottom"].set_linewidth(0.5)
     ax.spines['bottom'].set_color('black')
@@ -174,13 +251,13 @@ for data_set in data_sets:
         else: plt.plot(data[bin_set], lw=3.5, color=c, label=bin_set)         
                
     # add plot and axis titles and adjust the edges
-    if pos<3: plt.title("Bin contamination", fontsize=36) 
+    if pos<4: plt.title("Bin contamination", fontsize=36) 
     plt.ylabel("Bin contamination (%)", fontsize=20)
     plt.gcf().subplots_adjust(right=0.9)
-    if pos>4: plt.xlabel("Bin contamination ranking", fontsize=20)
+    if pos>6: plt.xlabel("Bin contamination ranking", fontsize=20)
 
-    if pos==4: 
-        legend=plt.legend(bbox_to_anchor=(0.3, -1.5), ncol=2, facecolor=None, prop={'size': 20}, frameon=False, title=None, columnspacing=0.5)
+    if pos==6: 
+        legend=plt.legend(bbox_to_anchor=(0.5, -1.4), ncol=2, facecolor=None, prop={'size': 30}, frameon=False, title=None, columnspacing=0.5)
         legend.get_title().set_fontsize('24')
         legend._legend_box.align = "left"
 
@@ -188,11 +265,10 @@ for data_set in data_sets:
 
 # save figure
 print "Saving figures binning_results.eps and binning_results.png ..."
-plt.tight_layout(w_pad=5)
+plt.tight_layout(w_pad=2)
 plt.subplots_adjust(top=0.93, right=0.95, left=0.11, bottom=0.14)
 plt.savefig(sys.argv[1],format='eps', dpi=600)
 #plt.savefig("binning_results.png",format='png', dpi=600)
-#plt.show()
 
 
 
