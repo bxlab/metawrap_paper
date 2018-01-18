@@ -105,7 +105,7 @@ for data_set in data_sets:
         
     # add plot and axis titles and adjust edges
     if pos<3: plt.title("Bin N50", fontsize=36) 
-    plt.ylabel("Bin N50 (Kpb)", fontsize=20)
+    plt.ylabel("Bin N50 (Kbp)", fontsize=20)
     if pos>4: plt.xlabel("Bin completion ranking", fontsize=20)
     plt.text(-0.35*max_x, 50000, data_set, fontsize=36, ha="center", rotation='vertical', verticalalignment='center')
 

@@ -173,10 +173,10 @@ for data_set in data_sets:
     for bin_set in data:
     # chose a color!
         c=plot_colors[bin_set]
-        if pos==4:
+        if pos==2:
             if bin_set=="MaxBin2" or bin_set=="metaBAT2" or bin_set=="CONCOCT": plt.plot(data[bin_set], lw=3.5, color=c, linestyle='dashed', label=bin_set)
             else: plt.plot(data[bin_set], lw=3.5, color=c)
-        elif pos==6:
+        elif pos==4:
             if bin_set=="MaxBin2" or bin_set=="metaBAT2" or bin_set=="CONCOCT": plt.plot(data[bin_set], lw=3.5, color=c, linestyle='dashed')
             else: plt.plot(data[bin_set], lw=3.5, color=c, label=bin_set)
         else:
@@ -189,11 +189,11 @@ for data_set in data_sets:
     plt.gcf().subplots_adjust(right=0.9)
     if pos>4: plt.xlabel("Bin contamination ranking", fontsize=20)
 
-    if pos==4: 
+    if pos==2: 
         legend=plt.legend(bbox_to_anchor=(1.1, 0.1), ncol=1, facecolor=None, prop={'size': 20}, frameon=False, title="Original binners", columnspacing=0.5)
         legend.get_title().set_fontsize('24')
         legend._legend_box.align = "left"
-    elif pos==6: 
+    elif pos==4: 
         legend=plt.legend(bbox_to_anchor=(1.1, 0.5), ncol=1, facecolor=None, prop={'size': 20}, frameon=False, title="Bin refiners", columnspacing=0.5)
         legend.get_title().set_fontsize('24')
         legend._legend_box.align = "left"
