@@ -182,7 +182,7 @@ library(gtable)
 library(grid)
 
 subplotwidth=3000;
-subplotheight=3000;
+subplotheight=1200;
 
 args <- commandArgs(trailingOnly = TRUE)
 
@@ -213,13 +213,14 @@ blank <- grid.rect(gp=gpar(col="white"))
 #p <- plot_grid( prow, legend_b, ncol = 1, rel_heights = c(1, .2))
 
 layout=matrix(c(1,2,3,4,4,5,6,7,8), nrow=3, byrow=TRUE)
-#grid.arrange(g1, g2, g3, legend, blank, b1, b2, b3, ncol=3, widths=c(2, 1.7, 1.7), heights=c(2,0.3,2), layout_matrix=layout)
-#top_row <- plot_grid(g1, g2, g3, align = "v", ncol = 3, rel_widths = c(2, 1.7, 1.7), labels = c('A', 'B', 'C'))
-#bot_row <- plot_grid(b1, b2, b3, align = "v", ncol = 3, rel_widths = c(2, 1.7, 1.7), labels = c('D', 'E', 'F'))
 top_row <- grid.arrange(g1, g2, g3, ncol=3, widths=c(2, 1.7, 1.7))
 bot_row <- grid.arrange(b1, b2, b3, ncol=3, widths=c(2, 1.7, 1.7))
 legend_row <- grid.arrange(legend, blank, ncol=2, widths=c(1, 0.05))
-plot_grid(top_row, legend_row, bot_row, align = "h", ncol = 1, rel_heights = c(2, 0.3, 2))
+#plot_grid(top_row, legend_row, align = "h", ncol = 1, rel_heights = c(2, 0.3))
+plot_grid(bot_row, align = "h", ncol = 1, rel_heights = c(2))
+#plot_grid(top_row, legend_row, bot_row, align = "h", ncol = 1, rel_heights = c(2, 0.3, 2))
+
+
 dev.off()
 
 
