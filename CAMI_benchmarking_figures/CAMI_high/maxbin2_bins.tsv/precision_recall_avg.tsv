@@ -1,2 +1,0 @@
-tool	avg_precision	std_dev_precision	sem_precision	avg_recall	std_dev_recall	sem_recall
-MaxBin2	0.980	0.040	0.003	0.395	0.473	0.019

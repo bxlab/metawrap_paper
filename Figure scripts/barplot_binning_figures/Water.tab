@@ -1,0 +1,5 @@
+Completion	metaBAT2	MaxBin2	CONCOCT	Binning_refiner	DAS_Tool	default	>80	>90	>95	default reassembly	>80 reassembly	>90 reassembly	>95 reassembly
+> 95%	58	41	15	52	64	64	64	65	72	75	73	72	76
+> 90%	39	26	11	53	43	53	54	63	0	57	56	62	0
+> 80%	35	14	6	44	27	41	46	0	0	42	44	0	0
+> 70%	11	2	5	23	12	27	0	0	0	25	0	0	0

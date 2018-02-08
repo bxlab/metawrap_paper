@@ -1,9 +1,0 @@
-bin	completeness	contamination	GC	lineage	N50	size	binner
-bin.1	99.09	3.636	0.556	Bacteria	65260	4394191	NA
-bin.2	96.73	6.086	0.664	Alphaproteobacteria	37812	6665267	NA
-bin.3	97.75	0.862	0.678	Actinobacteria	76841	2392370	NA
-bin.4	98.21	0.096	0.669	Comamonadaceae	88735	6126738	NA
-bin.5	97.33	1.032	0.645	Alphaproteobacteria	24602	2538655	NA
-bin.6	97.61	0.0	0.419	Bacteroidetes	201253	3141098	NA
-bin.7	99.26	1.970	0.494	Bacteroidetes	211885	7371501	NA
-bin.8	95.56	6.956	0.599	Bacteria	40248	7188643	NA
