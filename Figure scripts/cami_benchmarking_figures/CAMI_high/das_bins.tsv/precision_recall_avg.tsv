@@ -1,2 +1,0 @@
-tool	avg_precision	std_dev_precision	sem_precision	avg_recall	std_dev_recall	sem_recall
-DAS_Tool	0.984	0.032	0.002	0.656	0.450	0.018

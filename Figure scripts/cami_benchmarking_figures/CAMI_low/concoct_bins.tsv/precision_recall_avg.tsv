@@ -1,2 +1,0 @@
-tool	avg_precision	std_dev_precision	sem_precision	avg_recall	std_dev_recall	sem_recall
-CONCOCT	0.992	0.016	0.004	0.360	0.467	0.074

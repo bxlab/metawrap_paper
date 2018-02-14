@@ -1,6 +1,0 @@
-refinement_50_1.stats	21
-refinement_50_10.stats	0
-refinement_50_2.stats	21
-refinement_50_4.stats	8
-refinement_50_6.stats	0
-refinement_50_8.stats	1
