@@ -31,9 +31,10 @@ for bin in INITIAL_BINNING/maxbin2_bins/*; do for contig in $(grep ">" $bin); do
 for bin in INITIAL_BINNING/concoct_bins/*; do for contig in $(grep ">" $bin); do echo -e "$(echo $contig | cut -d">" -f2)\t$(echo $bin | cut -f2 -d"/")"; done; done > concoct.tsv
 ./DAS_Tool  -i metabat2.tsv, maxbin2.tsv, concoct.tsv --search_engine blast -l metabat2,maxbin2,concoct -c ASSEMBLY/final_assembly.fasta -o DAS_Tool_out
 
+# bin quality assessment of bins in a directory bin_folder with CheckM
+checkm lineage_wf -x fa $bin_folder ${bin_folder}.checkm -t 24 --tmpdir ${bin_folder}.tmp
 
 # bin quality assessment with AMBER
-
 python3 AMBER/src/utils/convert_fasta_bins_to_cami.py INITIAL_BINNING/metabat2_bins/* -o metabat2.csv
 python3 AMBER/src/utils/convert_fasta_bins_to_cami.py INITIAL_BINNING/maxbin2/* -o maxbin2.csv
 python3 AMBER/src/utils/convert_fasta_bins_to_cami.py INITIAL_BINNING/concoct/* -o concoct.csv

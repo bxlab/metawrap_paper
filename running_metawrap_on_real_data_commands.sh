@@ -60,5 +60,6 @@ metaWRAP/bin/metawrap-scripts/checkm.sh INITIAL_BINNING/maxbin2_bins
 metaWRAP/bin/metawrap-scripts/checkm.sh INITIAL_BINNING/metabat2_bins
 metaWRAP/bin/metawrap-scripts/checkm.sh INITIAL_BINNING/concoct_bins
 
-
+# alternative bin quality assessment of bins in a directory bin_folder with CheckM
+checkm lineage_wf -x fa $bin_folder ${bin_folder}.checkm -t 24 --tmpdir ${bin_folder}.tmp
 
