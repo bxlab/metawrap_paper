@@ -206,8 +206,8 @@ for data_set in data_sets:
 print "Saving figures..."
 plt.tight_layout(w_pad=5)
 plt.subplots_adjust(top=0.93, right=0.8, left=0.08, bottom=0.08)
-plt.savefig(sys.argv[1],format='eps', dpi=600)
-#plt.savefig("binning_results.png",format='png', dpi=600)
+#plt.savefig(sys.argv[1],format='eps', dpi=600)
+plt.savefig("binning_results.png",format='png', dpi=600)
 #plt.show()
 
 
