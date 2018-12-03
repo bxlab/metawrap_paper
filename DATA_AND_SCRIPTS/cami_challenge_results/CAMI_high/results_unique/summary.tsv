@@ -1,0 +1,6 @@
+tool	avg_precision	std_dev_precision	sem_precision	avg_recall	std_dev_recall	sem_recall	avg_precision_per_bp	avg_recall_per_bp	rand_index_by_bp	rand_index_by_seq	a_rand_index_by_bp	a_rand_index_by_seq	percent_assigned_bps	accuracy	>0.5compl<0.1cont	>0.7compl<0.1cont	>0.9compl<0.1cont	>0.5compl<0.05cont	>0.7compl<0.05cont	>0.9compl<0.05cont
+MaxBin2	0.980	0.040	0.003	0.603	0.465	0.025	0.981	0.381	1.000	0.997	0.976	0.893	0.384	0.376	214	212	192	198	196	177
+CONCOCT	0.983	0.035	0.006	0.087	0.277	0.015	0.984	0.045	0.999	0.986	0.983	0.941	0.045	0.045	30	30	28	30	30	28
+MetaBAT2	0.981	0.044	0.002	0.866	0.295	0.016	0.980	0.598	1.000	0.998	0.969	0.864	0.605	0.594	303	301	267	282	280	250
+Bin_refiner	0.999	0.007	0.000	0.602	0.449	0.024	0.999	0.377	1.000	1.000	0.998	0.998	0.377	0.377	229	221	182	229	221	182
+metaWRAP	0.993	0.023	0.001	0.922	0.194	0.010	0.991	0.653	1.000	0.999	0.985	0.950	0.657	0.651	339	338	301	329	328	296

@@ -43,7 +43,7 @@ for bin in INITIAL_BINNING/concoct_bins//*; do for contig in $(grep ">" $bin); d
 metawrap reassemble_bins -o BIN_REASSEMBLY -1 CLEAN_READS/ALL_READS_1.fastq -2 CLEAN_READS/ALL_READS_2.fastq -t 96 -m 800 -c 70 -x 10 -b BIN_REFINEMENT/metaWRAP_bins
 
 # bin and contig quantification:
-metawrap quant_bins -b BIN_REFINEMENT/metaWRAP_bins -o QUANT_BINS -a ASSEMBLY/final_assemN_READS/*fastq
+metawrap quant_bins -b BIN_REFINEMENT/metaWRAP_bins -o QUANT_BINS -a ASSEMBLY/final_assembly.fa CLEAN_READS/*fastq
 
 # running blobology:
 metawrap blobology -a ASSEMBLY/final_assembly.fasta -t 96 -o BLOBOLOGY --bins BIN_REFINEMENT/metaWRAP_bins CLEAN_READS/*fastq

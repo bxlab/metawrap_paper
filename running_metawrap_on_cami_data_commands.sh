@@ -35,6 +35,7 @@ for bin in INITIAL_BINNING/concoct_bins/*; do for contig in $(grep ">" $bin); do
 checkm lineage_wf -x fa $bin_folder ${bin_folder}.checkm -t 24 --tmpdir ${bin_folder}.tmp
 
 # bin quality assessment with AMBER
+# (note: the scipt has been re-named to convert_fasta_bins_to_biobox_format.py in newer versions of AMBER)
 python3 AMBER/src/utils/convert_fasta_bins_to_cami.py INITIAL_BINNING/metabat2_bins/* -o metabat2.csv
 python3 AMBER/src/utils/convert_fasta_bins_to_cami.py INITIAL_BINNING/maxbin2/* -o maxbin2.csv
 python3 AMBER/src/utils/convert_fasta_bins_to_cami.py INITIAL_BINNING/concoct/* -o concoct.csv

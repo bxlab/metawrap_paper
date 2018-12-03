@@ -1,0 +1,2 @@
+tool	avg_precision	std_dev_precision	sem_precision	avg_recall	std_dev_recall	sem_recall
+MetaBAT2	0.992	0.026	0.003	0.739	0.408	0.046

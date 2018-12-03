@@ -1,0 +1,2 @@
+tool	avg_precision	std_dev_precision	sem_precision	avg_recall	std_dev_recall	sem_recall
+Bin_refiner	0.958	0.073	0.037	0.209	0.391	0.092

@@ -1,0 +1,2 @@
+tool	avg_precision	std_dev_precision	sem_precision	avg_recall	std_dev_recall	sem_recall
+metaWRAP	0.995	0.011	0.002	0.879	0.284	0.060

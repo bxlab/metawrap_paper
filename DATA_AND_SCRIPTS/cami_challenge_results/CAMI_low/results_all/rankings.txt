@@ -1,0 +1,20 @@
+Tool	Average precision
+MetaBAT2 	 0.997
+CONCOCT 	 0.992
+Bin_refiner 	 0.991
+metaWRAP 	 0.989
+MaxBin2 	 0.964
+
+Tool	Average recall
+metaWRAP 	 0.597
+Bin_refiner 	 0.517
+MaxBin2 	 0.453
+MetaBAT2 	 0.441
+CONCOCT 	 0.360
+
+Tool	Average precision + Average recall	Average precision	Average recall
+metaWRAP	1.586	0.989	0.597
+Bin_refiner	1.508	0.991	0.517
+MetaBAT2	1.438	0.997	0.441
+MaxBin2	1.417	0.964	0.453
+CONCOCT	1.352	0.992	0.360
